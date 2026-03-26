@@ -114,7 +114,6 @@
       background: #2e2e2e;
     }
 
-    /* image side */
     .hero-img {
       position: relative;
       width: 460px;
@@ -125,7 +124,6 @@
       flex-shrink: 0;
     }
 
-    /* white diamond frame using clip-path */
     .img-border {
       position: absolute;
       width: 370px;
@@ -134,7 +132,7 @@
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
 
-    /* actual photo clipped into diamond shape */
+    /* image clipped into a diamond using clip-path */
     .img-clip {
       position: relative;
       width: 345px;
@@ -142,6 +140,8 @@
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
       z-index: 1;
       overflow: hidden;
+      /* fallback background in case image doesn't load */
+      background: #d4581e;
     }
 
     .img-clip img {
@@ -149,9 +149,9 @@
       height: 100%;
       object-fit: cover;
       object-position: top center;
+      display: block;
     }
 
-    /* small decorative diamonds using clip-path */
     .deco-top {
       position: absolute;
       top: 5px;
@@ -172,7 +172,6 @@
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
 
-    /* big corner decorations on the page */
     .corner-tr {
       position: absolute;
       top: -50px;
@@ -268,7 +267,16 @@
       <div class="deco-bottom"></div>
       <div class="img-border"></div>
       <div class="img-clip">
-        <img src="https://images.unsplash.com/photo-1624555130858-7a63c89dda08?w=700&q=80" alt="Sippline drinking shield">
+        <!--
+          Add your own image here.
+          Example: <img src="your-photo.jpg" alt="Sippline drinking shield">
+          The image will automatically get clipped into a diamond shape.
+        -->
+        <img
+          src="https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2021/06/Pikachu-color-model-publicity-cel.jpg"
+          alt="Sippline drinking shield"
+          onerror="this.style.display='none'"
+        >
       </div>
     </div>
   </section>
