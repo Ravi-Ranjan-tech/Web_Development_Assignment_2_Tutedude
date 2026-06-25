@@ -1,278 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sippline</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background-color: #f26b38;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 60px;
-    }
-
-    nav .logo {
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 40px;
-      list-style: none;
-    }
-
-    nav ul a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    nav ul a:hover {
-      opacity: 0.8;
-    }
-
-    nav button {
-      background: #1e1e1e;
-      color: #fff;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 12px 28px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    nav button:hover {
-      background: #333;
-    }
-
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 50px 60px;
-      min-height: calc(100vh - 80px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-text {
-      max-width: 550px;
-      z-index: 2;
-    }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
-
-    .hero-text p {
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 38px;
-      max-width: 440px;
-    }
-
-    .hero-text button {
-      background: #1e1e1e;
-      color: #fff;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      padding: 16px 42px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    }
-
-    .hero-text button:hover {
-      background: #2e2e2e;
-    }
-
-    .hero-img {
-      position: relative;
-      width: 460px;
-      height: 460px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .img-border {
-      position: absolute;
-      width: 370px;
-      height: 370px;
-      background: #fff;
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    }
-
-    .img-clip {
-      position: relative;
-      width: 345px;
-      height: 345px;
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      z-index: 1;
-      overflow: hidden;
-      background: #d4581e;
-    }
-
-    .img-clip img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-
-    .deco-top {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      width: 100px;
-      height: 100px;
-      background: rgba(255,255,255,0.2);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    }
-
-    .deco-bottom {
-      position: absolute;
-      bottom: 10px;
-      right: 5px;
-      width: 80px;
-      height: 80px;
-      background: rgba(255,255,255,0.2);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    }
-
-    .corner-tr {
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 200px;
-      height: 200px;
-      background: rgba(255,255,255,0.12);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    }
-
-    .corner-br {
-      position: absolute;
-      bottom: -70px;
-      right: -35px;
-      width: 185px;
-      height: 185px;
-      background: rgba(255,255,255,0.1);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 30px;
-        gap: 40px;
-      }
-
-      .hero-text h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero-text p {
-        margin: 0 auto 32px;
-      }
-
-      .hero-img {
-        width: 300px;
-        height: 300px;
-      }
-
-      .img-border {
-        width: 245px;
-        height: 245px;
-      }
-
-      .img-clip {
-        width: 225px;
-        height: 225px;
-      }
-
-      nav {
-        padding: 16px 24px;
-      }
-
-      nav ul {
-        gap: 20px;
-      }
-    }
-
-    @media (max-width: 540px) {
-      nav ul {
-        display: none;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">Sippline</div>
-    <ul>
-      <li><a href="#">Shop</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Blogs</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    <button>Buy Now</button>
-  </nav>
+  <div class="container">
+    <h2>Create Account</h2>
+    <p class="subtitle">Fill in the details below to register.</p>
 
-  <section class="hero">
-    <div class="corner-tr"></div>
-    <div class="corner-br"></div>
+    <div id="message" class="message" style="display:none;"></div>
 
-    <div class="hero-text">
-      <h1>Sippline drinking shields – The "Glass ka Mask"</h1>
-      <p>Sippline Drinking Shield aims to protect the user from not just such fatal diseases but, also the mild ones such as common flu. Sippline drinking shield does the same job a face mask does, albeit differently.</p>
-      <button>Buy the Glass Mask!</button>
-    </div>
+    <form id="myForm">
 
-    <div class="hero-img">
-      <div class="deco-top"></div>
-      <div class="deco-bottom"></div>
-      <div class="img-border"></div>
-      <div class="img-clip">
-        <img
-          src="https://mlpnk72yciwc.i.optimole.com/cqhiHLc.IIZS~2ef73/w:auto/h:auto/q:75/https://bleedingcool.com/wp-content/uploads/2021/06/Pikachu-color-model-publicity-cel.jpg"
-          alt="Sippline drinking shield"
-          onerror="this.style.display='none'"
-        >
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" />
+        <span class="error" id="name-error"></span>
       </div>
-    </div>
-  </section>
 
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+        <span class="error" id="email-error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number (10 digits)</label>
+        <input type="tel" id="phone" placeholder="Enter 10-digit phone number" maxlength="10" />
+        <span class="error" id="phone-error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Min 8 chars, A-Z, a-z, 0-9" />
+        <button type="button" id="show-password">Show</button>
+        <span class="error" id="password-error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" placeholder="Re-enter your password" />
+        <button type="button" id="show-confirm">Show</button>
+        <span class="error" id="confirm-error"></span>
+      </div>
+
+      <button type="submit" id="submit-btn">Create Account</button>
+
+    </form>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
